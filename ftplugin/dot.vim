@@ -104,10 +104,11 @@ fu! GraphvizShow()
 		call GraphvizCompile(g:WMGraphviz_dot, g:WMGraphviz_output)
 	endif
 
-	if !executable(g:WMGraphviz_viewer)
-		echoerr 'Viewer program not found: "'.g:WMGraphviz_viewer.'"'
-		return
-	endif
+" To use custom program. Modify by River
+"	if !executable(g:WMGraphviz_viewer)
+"		echoerr 'Viewer program not found: "'.g:WMGraphviz_viewer.'"'
+"		return
+"	endif
 
 	exec '!'.g:WMGraphviz_viewer.' '.shellescape(GraphvizOutputFile(g:WMGraphviz_output)).' &'
 endfu
